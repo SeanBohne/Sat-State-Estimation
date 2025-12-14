@@ -968,7 +968,10 @@ function z = meas_func(x_sat, r_antenna, t, T_t, w_Earth, meas_model, low, high,
     % calculate range and angle measurements
     z_k_el = asin(z_t/r_t);
     
-    % set measurement limits
+    % set measurement limits. Ran into issues when implementing
+    % measurement limits. Covariance matrix would result in all "NaN"
+    % entries and could not be resolved. Uncomment the code below to
+    % implement measurement limits
     % if z_k_el < low || z_k_el > high
     %     z_k_range = NaN;
     %     z_k_range_rate = NaN;
